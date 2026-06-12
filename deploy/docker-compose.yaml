@@ -1,0 +1,59 @@
+services:
+  users-service:
+    build:
+      context: ../federation/users-service
+      dockerfile: Dockerfile
+    env_file:
+      - ../.env
+    ports:
+      - "4001:4001"
+
+  items-service:
+    build:
+      context: ../federation/items-service
+      dockerfile: Dockerfile
+    env_file:
+      - ../.env
+    ports:
+      - "4002:4002"
+
+  orders-service:
+    build:
+      context: ../federation/orders-service
+      dockerfile: Dockerfile
+    env_file:
+      - ../.env
+    environment:
+      ITEMS_SERVICE_URL: http://items-service:4002
+    depends_on:
+      - items-service
+    ports:
+      - "4003:4003"
+
+  gateway:
+    build:
+      context: ../federation/gateway
+      dockerfile: Dockerfile
+    depends_on:
+      - users-service
+      - items-service
+      - orders-service
+    env_file:
+      - ../.env
+    environment:
+      - USERS_SERVICE_URL=http://users-service:4001
+      - ITEMS_SERVICE_URL=http://items-service:4002
+      - ORDERS_SERVICE_URL=http://orders-service:4003
+    ports:
+      - "4000:4000"
+      
+  postgres:
+    image: postgres:16
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: dbname
+    ports:
+      - "5433:5432"
