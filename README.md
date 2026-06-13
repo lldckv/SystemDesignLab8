@@ -53,47 +53,46 @@
 
 Операции с user:
 
-Register
+* Register
 ![img](assets/user_create.png)
 
-Login
+* Login
 ![img](assets/user_login.png)
 
 Операции с item:
 
-Create
+* Create
 ![img](assets/item_create.png)
 
-Update
+* Update
 ![img](assets/item_update.png)
 
-Delete
+* Delete
 ![img](assets/item_del.png)
 
-List
+* List
 ![img](assets/item_list.png)
 
-Get
+* Get
 ![img](assets/item_get.png)
 
 Операции с order:
 
-Create
+* Create
 ![img](assets/order_create.png)
 
-Get
+* Get
 ![img](assets/order_get.png)
 
-Cancel
+* Cancel
 ![img](assets/order_cancel.png)
 
-List
+* List
 ![img](assets/order_list.png)
 
 ### Frontend
 
-Для приложения фронт React + Apollo Client:
-
+Директория [`frontend`](frontend/) содержит фронт React + Apollo Client:
 ![img](assets/front_page.png)
 
 
