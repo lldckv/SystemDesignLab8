@@ -50,7 +50,7 @@ const server = new ApolloServer({
       if (!user) {
         throw new AuthenticationError('Not authenticated')
       }
-      if (user.role === "admin") {
+      if (user.role === ("ADMIN" as JwtPayload['role'])) {
         return { user, isAdmin: true }
       }
       return { user, isAdmin: false }

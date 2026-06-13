@@ -70,7 +70,7 @@ export const createUser = async (
   state: string,
   country: string,
   zip: string,
-  role: Role = 'user',
+  role: Role = 'USER',
 ): Promise<User> => {
   const user = await prisma.user.create({
     data: {

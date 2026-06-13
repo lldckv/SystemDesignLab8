@@ -1,4 +1,4 @@
-import { User } from "../models/user"
+import { User, Role } from "../models/user"
 import { createUser, findUserByEmail, findUserById, findUsers } from "../services/users"
 import { signJwt } from "../utils/jwt"
 import { comparePassword, hashPassword } from "../utils/password"
@@ -40,7 +40,7 @@ export const register = async (
     country,
     zip
   )
-  const token = signJwt({ role: "user", userId: user.id })
+  const token = signJwt({ role: user.role as Role, userId: user.id })
   const { password: _, ...safeUser } = user
   return { token, user: safeUser }
 }
@@ -59,7 +59,7 @@ export const login = async (
     return null
   }
 
-  const token = signJwt({ role: "user", userId: user.id })
+  const token = signJwt({ role: user.role as Role, userId: user.id })
   const { password: _, ...safeUser } = user
   return { token, user: safeUser }
 }

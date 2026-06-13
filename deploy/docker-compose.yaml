@@ -4,7 +4,7 @@ services:
       context: ../federation/users-service
       dockerfile: Dockerfile
     env_file:
-      - ../.env
+      - ../federation/users-service/.env
     ports:
       - "4001:4001"
 
@@ -13,7 +13,7 @@ services:
       context: ../federation/items-service
       dockerfile: Dockerfile
     env_file:
-      - ../.env
+      - ../federation/items-service/.env
     ports:
       - "4002:4002"
 
@@ -22,7 +22,7 @@ services:
       context: ../federation/orders-service
       dockerfile: Dockerfile
     env_file:
-      - ../.env
+      - ../federation/orders-service/.env
     environment:
       ITEMS_SERVICE_URL: http://items-service:4002
     depends_on:
@@ -39,7 +39,7 @@ services:
       - items-service
       - orders-service
     env_file:
-      - ../.env
+      - ../federation/gateway/.env
     environment:
       - USERS_SERVICE_URL=http://users-service:4001
       - ITEMS_SERVICE_URL=http://items-service:4002

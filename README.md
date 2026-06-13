@@ -42,7 +42,58 @@
 
 10. Деплоим; смотрим `http://localhost:4000/
 
+### Демонстрация лабораторной
+
+[Демонстрация лабораторной по ссылке](https://disk.yandex.ru/i/UY3RljUBN5hZWA)
+
+### Примеры запросов
+
+Запрос на просмотр зарегестрированных методов:
 ![img](assets/img1.png)
 
-Запрос на просмотр зарегестрированных методов
+Операции с user:
+
+Register
+![img](assets/user_create.png)
+
+Login
+![img](assets/user_login.png)
+
+Операции с item:
+
+Create
+![img](assets/item_create.png)
+
+Update
+![img](assets/item_update.png)
+
+Delete
+![img](assets/item_del.png)
+
+List
+![img](assets/item_list.png)
+
+Get
+![img](assets/item_get.png)
+
+Операции с order:
+
+Create
+![img](assets/order_create.png)
+
+Get
+![img](assets/order_get.png)
+
+Cancel
+![img](assets/order_cancel.png)
+
+List
+![img](assets/order_list.png)
+
+### Frontend
+
+Для приложения фронт React + Apollo Client:
+
+![img](assets/front_page.png)
+
 

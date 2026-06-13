@@ -13,4 +13,4 @@ export interface User {
   zip?: string;
 }
 
-export type Role = 'admin' | 'user';
+export type Role = 'ADMIN' | 'USER';

@@ -47,10 +47,10 @@ export const resolvers = {
       return payload
     },
     login: async (_: any, { email, password }: { email: string; password: string }) => {
-      const payload = login(email, password);
-      if (!payload) throw new Error('Invalid credentials');
-      return payload;
-    }
+    const payload = await login(email, password);
+    if (!payload) throw new Error('Invalid credentials');
+    return payload;
+  }
   }
 };
 
@@ -63,7 +63,7 @@ const server = new ApolloServer({
       if (!user) {
         throw new AuthenticationError('Not authenticated')
       }
-      if (user.role === "admin") {
+      if (user.role === ("ADMIN" as JwtPayload['role'])) {
         return { user, isAdmin: true }
       }
       return { user, isAdmin: false }
